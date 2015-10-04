@@ -1,0 +1,19 @@
+# Configuration for /etc/init.d/mjpg-streamer
+
+# The init.d script will only run if this variable non-empty.
+MJPG_STREAMER_USER="pi"
+
+# Where mjpg-streamer is installed, this is important!
+DAEMON_HOME=/home/pi/mjpg-streamer
+
+# What arguments to pass to mjpg-streamer, here is few examples; You can change them by commenting one and
+# uncommenting another:
+
+DAEMON_ARGS='-i "$DAEMON_HOME/input_uvc.so -r SXGA -f 15" -o "$DAEMON_HOME/output_http.so"'   # UVC-mode
+# DAEMON_ARGS='-i "$DAEMON_HOME/input_uvc.so -y" -o "$DAEMON_HOME/output_http.so"'              # YUV-mode
+
+# Umask of files mjpg-streamer generates, Change this to 000 if running mjpg-streamer as its own, separate user
+UMASK=022
+
+# Should we run at startup?
+RUN_AT_STARTUP="YES"
